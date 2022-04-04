@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<scriptd-configuration>
+	<engine language="beanshell" className="org.codehaus.groovy.bsf.GroovyEngine" extensions="groovy"/>
+
+	<event-script language="groovy">
+	<uei name="uei.jeffg.org/training/ecosystem/eventsOutScriptd" />
+		event = bsf.lookupBean("event")
+		new FileWriter("/var/tmp/eventlog.txt", true).with {
+			write("Well if it isn't my old friend " + event.uei + "\n")
+			flush()
+		}	
+	</event-script>
+
+</scriptd-configuration>
+
